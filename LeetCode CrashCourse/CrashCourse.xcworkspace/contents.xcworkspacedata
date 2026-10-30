@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <Group
+      location = "container:01-Introduction"
+      name = "01-Introduction">
+      <FileRef
+         location = "group:01-Big-O-and-Recursion.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:02-Arrays-and-Strings"
+      name = "02-Arrays-and-Strings">
+      <FileRef
+         location = "group:01-Two-Pointers.playground">
+      </FileRef>
+      <FileRef
+         location = "group:02-Sliding-Window.playground">
+      </FileRef>
+      <FileRef
+         location = "group:03-Prefix-Sum.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:03-Hashing"
+      name = "03-Hashing">
+      <FileRef
+         location = "group:01-Checking-Existence.playground">
+      </FileRef>
+      <FileRef
+         location = "group:02-Counting.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:04-Linked-Lists"
+      name = "04-Linked-Lists">
+      <FileRef
+         location = "group:01-Fast-and-Slow-Pointers.playground">
+      </FileRef>
+      <FileRef
+         location = "group:02-Reversing-a-Linked-List.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:05-Stacks-and-Queues"
+      name = "05-Stacks-and-Queues">
+      <FileRef
+         location = "group:01-Stacks.playground">
+      </FileRef>
+      <FileRef
+         location = "group:02-Queues.playground">
+      </FileRef>
+      <FileRef
+         location = "group:03-Monotonic-Stack.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:06-Trees-and-Graphs"
+      name = "06-Trees-and-Graphs">
+      <FileRef
+         location = "group:01-Binary-Trees-DFS.playground">
+      </FileRef>
+      <FileRef
+         location = "group:02-Binary-Trees-BFS.playground">
+      </FileRef>
+      <FileRef
+         location = "group:03-Binary-Search-Trees.playground">
+      </FileRef>
+      <FileRef
+         location = "group:04-Graphs-DFS.playground">
+      </FileRef>
+      <FileRef
+         location = "group:05-Graphs-BFS.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:07-Heaps"
+      name = "07-Heaps">
+      <FileRef
+         location = "group:01-Heaps-and-Top-K.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:08-Greedy"
+      name = "08-Greedy">
+      <FileRef
+         location = "group:01-Greedy-Algorithms.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:09-Binary-Search"
+      name = "09-Binary-Search">
+      <FileRef
+         location = "group:01-Binary-Search-on-Arrays.playground">
+      </FileRef>
+      <FileRef
+         location = "group:02-Binary-Search-on-Solution-Spaces.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:10-Backtracking"
+      name = "10-Backtracking">
+      <FileRef
+         location = "group:01-Backtracking.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:11-Dynamic-Programming"
+      name = "11-Dynamic-Programming">
+      <FileRef
+         location = "group:01-1D-Dynamic-Programming.playground">
+      </FileRef>
+      <FileRef
+         location = "group:02-Multi-Dimensional-DP.playground">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:12-Bonus"
+      name = "12-Bonus">
+      <FileRef
+         location = "group:01-Tries.playground">
+      </FileRef>
+      <FileRef
+         location = "group:02-Bit-Manipulation.playground">
+      </FileRef>
+   </Group>
+</Workspace>
