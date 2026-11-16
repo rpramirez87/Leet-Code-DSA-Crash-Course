@@ -164,10 +164,10 @@ func getAveragesBySlidingWindows(_ nums: [Int], _ k: Int) -> [Int] {
     }
     answer[k] = windowSum / windowSize
 
-    // 2. Slide: add the element entering on the right, drop the one leaving on the left
+    // add the element entering on the right, drop the one leaving on the left
     for right in windowSize..<n {
         windowSum += nums[right] - nums[right - windowSize]
-        answer[right - k] = windowSum / windowSize    // center is k steps behind the right edge
+        answer[right - k] = windowSum / windowSize
     }
     return answer
 }
