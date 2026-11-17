@@ -15,8 +15,11 @@ import Foundation
  Input: sentence = "leetcode"                              Output: false
  */
 func checkIfPangram(_ sentence: String) -> Bool {
-    // TODO: implement
-    return false
+    var characterSet = Set<Character>()
+    for character in sentence {
+        characterSet.insert(character)
+    }
+    return characterSet.count == 26
 }
 
 /*
