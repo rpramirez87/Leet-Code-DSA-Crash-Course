@@ -33,8 +33,11 @@ func checkIfPangram(_ sentence: String) -> Bool {
  Input: nums = [9,6,4,2,3,5,7,0,1]  Output: 8
  */
 func missingNumber(_ nums: [Int]) -> Int {
-    // TODO: implement
-    return 0
+    let numsSet = Set(nums)
+    for num in 0...nums.count where !numsSet.contains(num) {
+        return num
+    }
+    return -1 // unreachable: exactly one number in 0...n is missing
 }
 
 /*
@@ -161,6 +164,8 @@ check(checkIfPangram("leetcode"), false, "pangram 2")
 check(missingNumber([3, 0, 1]), 2, "missing number 1")
 check(missingNumber([0, 1]), 2, "missing number 2")
 check(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]), 8, "missing number 3")
+check(missingNumber([1]), 0, "missing number (0 missing, single)")
+check(missingNumber([2, 1, 3]), 0, "missing number (0 missing)")
 
 check(countElements([1, 2, 3]), 2, "counting elements 1")
 check(countElements([1, 1, 3, 3, 5, 5, 7, 7]), 0, "counting elements 2")
