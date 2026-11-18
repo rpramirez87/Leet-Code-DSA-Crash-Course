@@ -50,11 +50,10 @@ func missingNumber(_ nums: [Int]) -> Int {
  Input: arr = [1,1,3,3,5,5,7,7]    Output: 0
  */
 func countElements(_ arr: [Int]) -> Int {
+    let numsSet = Set(arr)
     var answerCount = 0
-    for num in arr {
-        if arr.contains(num + 1) {
-            answerCount += 1
-        }
+    for num in arr where numsSet.contains(num + 1) {
+        answerCount += 1
     }
     return answerCount
 }
