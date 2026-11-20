@@ -55,12 +55,8 @@ func intersection(_ nums: [[Int]]) -> [Int] {
             counts[num, default: 0] += 1
         }
     }
-    for (num, counts) in counts {
-        if num == nums.count {
-            answer.append(counts)
-        }
-    }
-    return answer.sorted()
+    
+    return counts.filter { $0.value == nums.count }.keys.sorted()
 }
 check(intersection([[3, 1, 2, 4, 5], [1, 2, 3, 4], [3, 4, 5, 6]]), [3, 4], "intersection: textbook example")
 check(intersection([[1, 2, 3], [4, 5, 6]]), [], "intersection: nothing in common")
