@@ -38,7 +38,6 @@ check(findLongestSubstring("aaabbccd", 2), 5, "longest substring: aaabbccd, k=2 
 check(findLongestSubstring("ababab", 2), 6, "longest substring: whole string fits")
 check(findLongestSubstring("abc", 1), 1, "longest substring: k=1, no repeats")
 
-
 /*
  Example 2: 2248. Intersection of Multiple Arrays
 
@@ -71,14 +70,25 @@ check(intersection([[5, 1, 3]]), [1, 3, 5], "intersection: single array, result 
  For example, given s = "abacbc", return true, because all characters appear twice. Given s = "aaabb", return false. "a" appears 3 times, "b" appears 2 times. 3 != 2.
  */
 func areOccurrencesEqual(_ s: String) -> Bool {
-    // TODO: implement
-    return false
+    let charArray = Array(s)
+    var count = [Character: Int]()
+    for character in charArray {
+        count[character, default: 0] += 1
+    }
+    
+    let expectedCount = count.values.first
+    
+    for value in count.values {
+        if value != expectedCount {
+            return false
+        }
+    }
+    return true
 }
 
 check(areOccurrencesEqual("abacbc"), true, "equal occurrences: abacbc")
 check(areOccurrencesEqual("aaabb"), false, "equal occurrences: aaabb")
 check(areOccurrencesEqual("a"), true, "equal occurrences: single character")
-
 
 /*
  Example 4: 560. Subarray Sum Equals K
