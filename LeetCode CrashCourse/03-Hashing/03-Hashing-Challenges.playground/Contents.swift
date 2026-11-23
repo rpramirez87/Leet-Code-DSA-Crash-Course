@@ -83,8 +83,19 @@ check(countElements([1, 1, 2, 2]), 2, "counting elements (duplicates count)")
  Output: [[1,2,10],[4,5,7,8]]
  */
 func findWinners(_ matches: [[Int]]) -> [[Int]] {
-    // TODO: implement
-    return [[], []]
+    var winCounts = [Int: Int]()
+    var loseCounts = [Int: Int]()
+    for match in matches {
+        winCounts[match[0], default: 0] += 1
+        loseCounts[match[1], default: 0] += 1
+    }
+    
+    // undefeated = number that doesn't exist in lose counts but exists in win counts
+    let undefeated = Array(winCounts.filter { !loseCounts.keys.contains($0.key) }.keys).sorted()
+    
+    // oneLost = number of players who only lost on
+    let oneLost = Array(loseCounts.filter { $0.value == 1 }.keys).sorted()
+    return [undefeated, oneLost]
 }
 
 check(findWinners([[1, 3], [2, 3], [3, 6], [5, 6], [5, 7], [4, 5], [4, 8], [4, 9], [10, 4], [10, 9]]),
