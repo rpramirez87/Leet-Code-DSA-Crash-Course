@@ -2,7 +2,7 @@
 //: Chapter: 11-Dynamic-Programming
 //:
 //: Practice problems for 1D and multi-dimensional dynamic programming.
-//: Write each solution, then run the playground — the tests are at the bottom.
+//: Write each solution, then run the playground — each challenge's tests are right under it.
 import Foundation
 
 // MARK: - 1D DP
@@ -21,6 +21,10 @@ func climbStairs(_ n: Int) -> Int {
     return 0
 }
 
+check(climbStairs(2), 2, "climbing stairs 1")
+check(climbStairs(3), 3, "climbing stairs 2")
+check(climbStairs(5), 8, "climbing stairs 3")
+
 /*
  Challenge 2: 746. Min Cost Climbing Stairs
 
@@ -34,6 +38,9 @@ func minCostClimbingStairs(_ cost: [Int]) -> Int {
     // TODO: implement
     return 0
 }
+
+check(minCostClimbingStairs([10, 15, 20]), 15, "min cost stairs 1")
+check(minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]), 6, "min cost stairs 2")
 
 /*
  Challenge 3: 198. House Robber
@@ -49,6 +56,9 @@ func rob(_ nums: [Int]) -> Int {
     return 0
 }
 
+check(rob([1, 2, 3, 1]), 4, "house robber 1")
+check(rob([2, 7, 9, 3, 1]), 12, "house robber 2")
+
 /*
  Challenge 4: 300. Longest Increasing Subsequence
 
@@ -61,6 +71,10 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
     // TODO: implement
     return 0
 }
+
+check(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]), 4, "LIS 1")
+check(lengthOfLIS([0, 1, 0, 3, 2, 3]), 4, "LIS 2")
+check(lengthOfLIS([7, 7, 7, 7]), 1, "LIS 3")
 
 /*
  Challenge 5: 2140. Solving Questions With Brainpower
@@ -77,6 +91,9 @@ func mostPoints(_ questions: [[Int]]) -> Int {
     return 0
 }
 
+check(mostPoints([[3, 2], [4, 3], [4, 4], [2, 5]]), 5, "brainpower 1")
+check(mostPoints([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]), 7, "brainpower 2")
+
 /*
  Challenge 6: 322. Coin Change
 
@@ -91,6 +108,10 @@ func coinChange(_ coins: [Int], _ amount: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(coinChange([1, 2, 5], 11), 3, "coin change 1")
+check(coinChange([2], 3), -1, "coin change 2")
+check(coinChange([1], 0), 0, "coin change 3")
 
 // MARK: - Multi-Dimensional DP
 
@@ -107,6 +128,10 @@ func longestCommonSubsequence(_ text1: String, _ text2: String) -> Int {
     return 0
 }
 
+check(longestCommonSubsequence("abcde", "ace"), 3, "LCS 1")
+check(longestCommonSubsequence("abc", "abc"), 3, "LCS 2")
+check(longestCommonSubsequence("abc", "def"), 0, "LCS 3")
+
 /*
  Challenge 8: 62. Unique Paths
 
@@ -120,6 +145,9 @@ func uniquePaths(_ m: Int, _ n: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(uniquePaths(3, 7), 28, "unique paths 1")
+check(uniquePaths(3, 2), 3, "unique paths 2")
 
 /*
  Challenge 9: 64. Minimum Path Sum
@@ -135,6 +163,9 @@ func minPathSum(_ grid: [[Int]]) -> Int {
     return 0
 }
 
+check(minPathSum([[1, 3, 1], [1, 5, 1], [4, 2, 1]]), 7, "min path sum 1")
+check(minPathSum([[1, 2, 3], [4, 5, 6]]), 12, "min path sum 2")
+
 /*
  Challenge 10: 931. Minimum Falling Path Sum
 
@@ -148,6 +179,9 @@ func minFallingPathSum(_ matrix: [[Int]]) -> Int {
     // TODO: implement
     return 0
 }
+
+check(minFallingPathSum([[2, 1, 3], [6, 5, 4], [7, 8, 9]]), 13, "falling path 1")
+check(minFallingPathSum([[-19, 57], [-40, -5]]), -59, "falling path 2")
 
 /*
  Challenge 11: 518. Coin Change II
@@ -163,6 +197,10 @@ func change(_ amount: Int, _ coins: [Int]) -> Int {
     return 0
 }
 
+check(change(5, [1, 2, 5]), 4, "coin change II 1")
+check(change(3, [2]), 0, "coin change II 2")
+check(change(10, [10]), 1, "coin change II 3")
+
 /*
  Challenge 12: 188. Best Time to Buy and Sell Stock IV
 
@@ -176,46 +214,6 @@ func maxProfit(_ k: Int, _ prices: [Int]) -> Int {
     // TODO: implement
     return 0
 }
-
-// MARK: - Tests
-
-check(climbStairs(2), 2, "climbing stairs 1")
-check(climbStairs(3), 3, "climbing stairs 2")
-check(climbStairs(5), 8, "climbing stairs 3")
-
-check(minCostClimbingStairs([10, 15, 20]), 15, "min cost stairs 1")
-check(minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]), 6, "min cost stairs 2")
-
-check(rob([1, 2, 3, 1]), 4, "house robber 1")
-check(rob([2, 7, 9, 3, 1]), 12, "house robber 2")
-
-check(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]), 4, "LIS 1")
-check(lengthOfLIS([0, 1, 0, 3, 2, 3]), 4, "LIS 2")
-check(lengthOfLIS([7, 7, 7, 7]), 1, "LIS 3")
-
-check(mostPoints([[3, 2], [4, 3], [4, 4], [2, 5]]), 5, "brainpower 1")
-check(mostPoints([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]), 7, "brainpower 2")
-
-check(coinChange([1, 2, 5], 11), 3, "coin change 1")
-check(coinChange([2], 3), -1, "coin change 2")
-check(coinChange([1], 0), 0, "coin change 3")
-
-check(longestCommonSubsequence("abcde", "ace"), 3, "LCS 1")
-check(longestCommonSubsequence("abc", "abc"), 3, "LCS 2")
-check(longestCommonSubsequence("abc", "def"), 0, "LCS 3")
-
-check(uniquePaths(3, 7), 28, "unique paths 1")
-check(uniquePaths(3, 2), 3, "unique paths 2")
-
-check(minPathSum([[1, 3, 1], [1, 5, 1], [4, 2, 1]]), 7, "min path sum 1")
-check(minPathSum([[1, 2, 3], [4, 5, 6]]), 12, "min path sum 2")
-
-check(minFallingPathSum([[2, 1, 3], [6, 5, 4], [7, 8, 9]]), 13, "falling path 1")
-check(minFallingPathSum([[-19, 57], [-40, -5]]), -59, "falling path 2")
-
-check(change(5, [1, 2, 5]), 4, "coin change II 1")
-check(change(3, [2]), 0, "coin change II 2")
-check(change(10, [10]), 1, "coin change II 3")
 
 check(maxProfit(2, [2, 4, 1]), 2, "stock IV 1")
 check(maxProfit(2, [3, 2, 6, 5, 0, 3]), 7, "stock IV 2")

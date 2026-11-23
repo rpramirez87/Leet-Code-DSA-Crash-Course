@@ -2,7 +2,7 @@
 //: Chapter: 09-Binary-Search
 //:
 //: Practice problems for binary search on arrays and on solution spaces.
-//: Write each solution, then run the playground — the tests are at the bottom.
+//: Write each solution, then run the playground — each challenge's tests are right under it.
 import Foundation
 
 // MARK: - Binary Search on Arrays
@@ -20,6 +20,9 @@ func search(_ nums: [Int], _ target: Int) -> Int {
     return 0
 }
 
+check(search([-1, 0, 3, 5, 9, 12], 9), 4, "binary search 1")
+check(search([-1, 0, 3, 5, 9, 12], 2), -1, "binary search 2")
+
 /*
  Challenge 2: 35. Search Insert Position
 
@@ -35,6 +38,11 @@ func searchInsert(_ nums: [Int], _ target: Int) -> Int {
     return 0
 }
 
+check(searchInsert([1, 3, 5, 6], 5), 2, "search insert 1")
+check(searchInsert([1, 3, 5, 6], 2), 1, "search insert 2")
+check(searchInsert([1, 3, 5, 6], 7), 4, "search insert 3")
+check(searchInsert([1, 3, 5, 6], 0), 0, "search insert 4")
+
 /*
  Challenge 3: 74. Search a 2D Matrix
 
@@ -48,6 +56,11 @@ func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {
     // TODO: implement
     return false
 }
+
+let sortedMatrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]]
+check(searchMatrix(sortedMatrix, 3), true, "search 2D matrix 1")
+check(searchMatrix(sortedMatrix, 13), false, "search 2D matrix 2")
+check(searchMatrix(sortedMatrix, 60), true, "search 2D matrix 3")
 
 /*
  Challenge 4: 2300. Successful Pairs of Spells and Potions
@@ -63,6 +76,9 @@ func successfulPairs(_ spells: [Int], _ potions: [Int], _ success: Int) -> [Int]
     return []
 }
 
+check(successfulPairs([5, 1, 3], [1, 2, 3, 4, 5], 7), [4, 0, 3], "spells and potions 1")
+check(successfulPairs([3, 1, 2], [8, 5, 8], 16), [2, 0, 2], "spells and potions 2")
+
 /*
  Challenge 5: 2389. Longest Subsequence With Limited Sum
 
@@ -75,6 +91,9 @@ func answerQueries(_ nums: [Int], _ queries: [Int]) -> [Int] {
     // TODO: implement
     return []
 }
+
+check(answerQueries([4, 5, 2, 1], [3, 10, 21]), [2, 3, 4], "limited sum 1")
+check(answerQueries([2, 3, 4, 5], [1]), [0], "limited sum 2")
 
 // MARK: - Binary Search on Solution Spaces
 
@@ -93,6 +112,10 @@ func minEatingSpeed(_ piles: [Int], _ h: Int) -> Int {
     return 0
 }
 
+check(minEatingSpeed([3, 6, 7, 11], 8), 4, "koko 1")
+check(minEatingSpeed([30, 11, 23, 4, 20], 5), 30, "koko 2")
+check(minEatingSpeed([30, 11, 23, 4, 20], 6), 23, "koko 3")
+
 /*
  Challenge 7: 1283. Find the Smallest Divisor Given a Threshold
 
@@ -106,6 +129,9 @@ func smallestDivisor(_ nums: [Int], _ threshold: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(smallestDivisor([1, 2, 5, 9], 6), 5, "smallest divisor 1")
+check(smallestDivisor([44, 22, 33, 11, 1], 5), 44, "smallest divisor 2")
 
 /*
  Challenge 8: 1870. Minimum Speed to Arrive on Time
@@ -123,6 +149,10 @@ func minSpeedOnTime(_ dist: [Int], _ hour: Double) -> Int {
     return 0
 }
 
+check(minSpeedOnTime([1, 3, 2], 6), 1, "min speed 1")
+check(minSpeedOnTime([1, 3, 2], 2.7), 3, "min speed 2")
+check(minSpeedOnTime([1, 3, 2], 1.9), -1, "min speed 3")
+
 /*
  Challenge 9: 410. Split Array Largest Sum
 
@@ -136,6 +166,9 @@ func splitArray(_ nums: [Int], _ k: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(splitArray([7, 2, 5, 10, 8], 2), 18, "split array 1")
+check(splitArray([1, 2, 3, 4, 5], 2), 9, "split array 2")
 
 /*
  Challenge 10: 1231. Divide Chocolate
@@ -152,41 +185,6 @@ func maximizeSweetness(_ sweetness: [Int], _ k: Int) -> Int {
     // TODO: implement
     return 0
 }
-
-// MARK: - Tests
-
-check(search([-1, 0, 3, 5, 9, 12], 9), 4, "binary search 1")
-check(search([-1, 0, 3, 5, 9, 12], 2), -1, "binary search 2")
-
-check(searchInsert([1, 3, 5, 6], 5), 2, "search insert 1")
-check(searchInsert([1, 3, 5, 6], 2), 1, "search insert 2")
-check(searchInsert([1, 3, 5, 6], 7), 4, "search insert 3")
-check(searchInsert([1, 3, 5, 6], 0), 0, "search insert 4")
-
-let sortedMatrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]]
-check(searchMatrix(sortedMatrix, 3), true, "search 2D matrix 1")
-check(searchMatrix(sortedMatrix, 13), false, "search 2D matrix 2")
-check(searchMatrix(sortedMatrix, 60), true, "search 2D matrix 3")
-
-check(successfulPairs([5, 1, 3], [1, 2, 3, 4, 5], 7), [4, 0, 3], "spells and potions 1")
-check(successfulPairs([3, 1, 2], [8, 5, 8], 16), [2, 0, 2], "spells and potions 2")
-
-check(answerQueries([4, 5, 2, 1], [3, 10, 21]), [2, 3, 4], "limited sum 1")
-check(answerQueries([2, 3, 4, 5], [1]), [0], "limited sum 2")
-
-check(minEatingSpeed([3, 6, 7, 11], 8), 4, "koko 1")
-check(minEatingSpeed([30, 11, 23, 4, 20], 5), 30, "koko 2")
-check(minEatingSpeed([30, 11, 23, 4, 20], 6), 23, "koko 3")
-
-check(smallestDivisor([1, 2, 5, 9], 6), 5, "smallest divisor 1")
-check(smallestDivisor([44, 22, 33, 11, 1], 5), 44, "smallest divisor 2")
-
-check(minSpeedOnTime([1, 3, 2], 6), 1, "min speed 1")
-check(minSpeedOnTime([1, 3, 2], 2.7), 3, "min speed 2")
-check(minSpeedOnTime([1, 3, 2], 1.9), -1, "min speed 3")
-
-check(splitArray([7, 2, 5, 10, 8], 2), 18, "split array 1")
-check(splitArray([1, 2, 3, 4, 5], 2), 9, "split array 2")
 
 check(maximizeSweetness([1, 2, 3, 4, 5, 6, 7, 8, 9], 5), 6, "divide chocolate 1")
 check(maximizeSweetness([5, 6, 7, 8, 9, 1, 2, 3, 4], 8), 1, "divide chocolate 2")

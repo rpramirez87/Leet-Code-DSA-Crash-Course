@@ -2,7 +2,7 @@
 //: Chapter: 12-Bonus
 //:
 //: Practice problems for tries and bit manipulation.
-//: Write each solution, then run the playground — the tests are at the bottom.
+//: Write each solution, then run the playground — each challenge's tests are right under it.
 import Foundation
 
 // MARK: - Tries
@@ -36,6 +36,15 @@ class Trie {
     }
 }
 
+let trie = Trie()
+trie.insert("apple")
+check(trie.search("apple"), true, "trie search apple")
+check(trie.search("app"), false, "trie search app (before insert)")
+check(trie.startsWith("app"), true, "trie startsWith app")
+trie.insert("app")
+check(trie.search("app"), true, "trie search app (after insert)")
+check(trie.startsWith("b"), false, "trie startsWith b")
+
 /*
  Challenge 2: 1268. Search Suggestions System
 
@@ -50,6 +59,11 @@ func suggestedProducts(_ products: [String], _ searchWord: String) -> [[String]]
     // TODO: implement
     return []
 }
+
+check(suggestedProducts(["mobile", "mouse", "moneypot", "monitor", "mousepad"], "mouse"),
+      [["mobile", "moneypot", "monitor"], ["mobile", "moneypot", "monitor"],
+       ["mouse", "mousepad"], ["mouse", "mousepad"], ["mouse", "mousepad"]], "search suggestions 1")
+check(suggestedProducts(["havana"], "tatiana"), [[], [], [], [], [], [], []], "search suggestions 2")
 
 // MARK: - Bit Manipulation
 
@@ -67,6 +81,10 @@ func hammingWeight(_ n: Int) -> Int {
     return 0
 }
 
+check(hammingWeight(11), 3, "number of 1 bits 1")
+check(hammingWeight(128), 1, "number of 1 bits 2")
+check(hammingWeight(2147483645), 30, "number of 1 bits 3")
+
 /*
  Challenge 4: 136. Single Number
 
@@ -80,6 +98,10 @@ func singleNumber(_ nums: [Int]) -> Int {
     return 0
 }
 
+check(singleNumber([2, 2, 1]), 1, "single number 1")
+check(singleNumber([4, 1, 2, 1, 2]), 4, "single number 2")
+check(singleNumber([1]), 1, "single number 3")
+
 /*
  Challenge 5: 338. Counting Bits
 
@@ -92,6 +114,10 @@ func countBits(_ n: Int) -> [Int] {
     // TODO: implement
     return []
 }
+
+check(countBits(2), [0, 1, 1], "counting bits 1")
+check(countBits(5), [0, 1, 1, 2, 1, 2], "counting bits 2")
+check(countBits(0), [0], "counting bits 3")
 
 /*
  Challenge 6: 231. Power of Two
@@ -107,6 +133,11 @@ func isPowerOfTwo(_ n: Int) -> Bool {
     return false
 }
 
+check(isPowerOfTwo(1), true, "power of two 1")
+check(isPowerOfTwo(16), true, "power of two 2")
+check(isPowerOfTwo(3), false, "power of two 3")
+check(isPowerOfTwo(0), false, "power of two 4")
+
 /*
  Challenge 7: 461. Hamming Distance
 
@@ -119,39 +150,6 @@ func hammingDistance(_ x: Int, _ y: Int) -> Int {
     // TODO: implement
     return 0
 }
-
-// MARK: - Tests
-
-let trie = Trie()
-trie.insert("apple")
-check(trie.search("apple"), true, "trie search apple")
-check(trie.search("app"), false, "trie search app (before insert)")
-check(trie.startsWith("app"), true, "trie startsWith app")
-trie.insert("app")
-check(trie.search("app"), true, "trie search app (after insert)")
-check(trie.startsWith("b"), false, "trie startsWith b")
-
-check(suggestedProducts(["mobile", "mouse", "moneypot", "monitor", "mousepad"], "mouse"),
-      [["mobile", "moneypot", "monitor"], ["mobile", "moneypot", "monitor"],
-       ["mouse", "mousepad"], ["mouse", "mousepad"], ["mouse", "mousepad"]], "search suggestions 1")
-check(suggestedProducts(["havana"], "tatiana"), [[], [], [], [], [], [], []], "search suggestions 2")
-
-check(hammingWeight(11), 3, "number of 1 bits 1")
-check(hammingWeight(128), 1, "number of 1 bits 2")
-check(hammingWeight(2147483645), 30, "number of 1 bits 3")
-
-check(singleNumber([2, 2, 1]), 1, "single number 1")
-check(singleNumber([4, 1, 2, 1, 2]), 4, "single number 2")
-check(singleNumber([1]), 1, "single number 3")
-
-check(countBits(2), [0, 1, 1], "counting bits 1")
-check(countBits(5), [0, 1, 1, 2, 1, 2], "counting bits 2")
-check(countBits(0), [0], "counting bits 3")
-
-check(isPowerOfTwo(1), true, "power of two 1")
-check(isPowerOfTwo(16), true, "power of two 2")
-check(isPowerOfTwo(3), false, "power of two 3")
-check(isPowerOfTwo(0), false, "power of two 4")
 
 check(hammingDistance(1, 4), 2, "hamming distance 1")
 check(hammingDistance(3, 1), 1, "hamming distance 2")

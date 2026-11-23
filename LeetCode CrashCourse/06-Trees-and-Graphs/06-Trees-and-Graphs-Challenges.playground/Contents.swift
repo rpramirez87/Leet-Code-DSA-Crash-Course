@@ -4,7 +4,7 @@
 //: Practice problems for binary tree DFS/BFS, binary search trees, and graph DFS/BFS.
 //: Build trees with `TreeNode.make([3, 9, 20, nil, nil, 15, 7])` (LeetCode level order)
 //: and graphs with `buildGraph(n, edges)`.
-//: Write each solution, then run the playground — the tests are at the bottom.
+//: Write each solution, then run the playground — each challenge's tests are right under it.
 import Foundation
 
 // MARK: - Binary Trees: DFS
@@ -22,6 +22,10 @@ func minDepth(_ root: TreeNode?) -> Int {
     return 0
 }
 
+check(minDepth(TreeNode.make([3, 9, 20, nil, nil, 15, 7])), 2, "min depth 1")
+check(minDepth(TreeNode.make([2, nil, 3, nil, 4, nil, 5, nil, 6])), 5, "min depth 2")
+check(minDepth(nil), 0, "min depth (empty)")
+
 /*
  Challenge 2: 1026. Maximum Difference Between Node and Ancestor
 
@@ -34,6 +38,9 @@ func maxAncestorDiff(_ root: TreeNode?) -> Int {
     // TODO: implement
     return 0
 }
+
+check(maxAncestorDiff(TreeNode.make([8, 3, 10, 1, 6, nil, 14, nil, nil, 4, 7, 13])), 7, "max ancestor diff 1")
+check(maxAncestorDiff(TreeNode.make([1, nil, 2, nil, 0, 3])), 3, "max ancestor diff 2")
 
 /*
  Challenge 3: 543. Diameter of Binary Tree
@@ -49,6 +56,9 @@ func diameterOfBinaryTree(_ root: TreeNode?) -> Int {
     return 0
 }
 
+check(diameterOfBinaryTree(TreeNode.make([1, 2, 3, 4, 5])), 3, "diameter 1")
+check(diameterOfBinaryTree(TreeNode.make([1, 2])), 1, "diameter 2")
+
 // MARK: - Binary Trees: BFS
 
 /*
@@ -62,6 +72,9 @@ func deepestLeavesSum(_ root: TreeNode?) -> Int {
     // TODO: implement
     return 0
 }
+
+check(deepestLeavesSum(TreeNode.make([1, 2, 3, 4, 5, nil, 6, 7, nil, nil, nil, nil, 8])), 15, "deepest leaves 1")
+check(deepestLeavesSum(TreeNode.make([6, 7, 8, 2, 7, 1, 3, 9, nil, 1, 4, nil, nil, nil, 5])), 19, "deepest leaves 2")
 
 /*
  Challenge 5: 103. Binary Tree Zigzag Level Order Traversal
@@ -77,6 +90,10 @@ func zigzagLevelOrder(_ root: TreeNode?) -> [[Int]] {
     return []
 }
 
+check(zigzagLevelOrder(TreeNode.make([3, 9, 20, nil, nil, 15, 7])), [[3], [20, 9], [15, 7]], "zigzag 1")
+check(zigzagLevelOrder(TreeNode.make([1])), [[1]], "zigzag 2")
+check(zigzagLevelOrder(nil), [], "zigzag (empty)")
+
 /*
  Challenge 6: 199. Binary Tree Right Side View
 
@@ -90,6 +107,10 @@ func rightSideView(_ root: TreeNode?) -> [Int] {
     // TODO: implement
     return []
 }
+
+check(rightSideView(TreeNode.make([1, 2, 3, nil, 5, nil, 4])), [1, 3, 4], "right side view 1")
+check(rightSideView(TreeNode.make([1, nil, 3])), [1, 3], "right side view 2")
+check(rightSideView(TreeNode.make([1, 2, 3, 4])), [1, 3, 4], "right side view 3")
 
 // MARK: - Binary Search Trees
 
@@ -106,6 +127,9 @@ func insertIntoBST(_ root: TreeNode?, _ val: Int) -> TreeNode? {
     return nil
 }
 
+check(insertIntoBST(TreeNode.make([4, 2, 7, 1, 3]), 5)?.array ?? [], [4, 2, 7, 1, 3, 5], "insert into BST 1")
+check(insertIntoBST(nil, 5)?.array ?? [], [5], "insert into BST (empty)")
+
 /*
  Challenge 8: 530. Minimum Absolute Difference in BST
 
@@ -118,6 +142,9 @@ func getMinimumDifference(_ root: TreeNode?) -> Int {
     // TODO: implement
     return 0
 }
+
+check(getMinimumDifference(TreeNode.make([4, 2, 6, 1, 3])), 1, "min BST difference 1")
+check(getMinimumDifference(TreeNode.make([1, 0, 48, nil, nil, 12, 49])), 1, "min BST difference 2")
 
 /*
  Challenge 9: 98. Validate Binary Search Tree
@@ -133,6 +160,10 @@ func isValidBST(_ root: TreeNode?) -> Bool {
     return false
 }
 
+check(isValidBST(TreeNode.make([2, 1, 3])), true, "valid BST 1")
+check(isValidBST(TreeNode.make([5, 1, 4, nil, nil, 3, 6])), false, "valid BST 2")
+check(isValidBST(TreeNode.make([5, 4, 6, nil, nil, 3, 7])), false, "valid BST 3 (3 is under 6 but less than 5)")
+
 /*
  Challenge 10: 270. Closest Binary Search Tree Value
 
@@ -146,6 +177,10 @@ func closestValue(_ root: TreeNode?, _ target: Double) -> Int {
     // TODO: implement
     return 0
 }
+
+check(closestValue(TreeNode.make([4, 2, 5, 1, 3]), 3.714286), 4, "closest BST value 1")
+check(closestValue(TreeNode.make([1]), 4.428571), 1, "closest BST value 2")
+check(closestValue(TreeNode.make([4, 2, 5, 1, 3]), 3.5), 3, "closest BST value (tie -> smaller)")
 
 // MARK: - Graphs: DFS
 
@@ -163,6 +198,9 @@ func validPath(_ n: Int, _ edges: [[Int]], _ source: Int, _ destination: Int) ->
     return false
 }
 
+check(validPath(3, [[0, 1], [1, 2], [2, 0]], 0, 2), true, "path exists 1")
+check(validPath(6, [[0, 1], [0, 2], [3, 5], [5, 4], [4, 3]], 0, 5), false, "path exists 2")
+
 /*
  Challenge 12: 323. Number of Connected Components in an Undirected Graph
 
@@ -176,6 +214,9 @@ func countComponents(_ n: Int, _ edges: [[Int]]) -> Int {
     return 0
 }
 
+check(countComponents(5, [[0, 1], [1, 2], [3, 4]]), 2, "connected components 1")
+check(countComponents(5, [[0, 1], [1, 2], [2, 3], [3, 4]]), 1, "connected components 2")
+
 /*
  Challenge 13: 695. Max Area of Island
 
@@ -188,6 +229,19 @@ func maxAreaOfIsland(_ grid: [[Int]]) -> Int {
     // TODO: implement
     return 0
 }
+
+let island = [
+    [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+    [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+]
+check(maxAreaOfIsland(island), 6, "max area of island 1")
+check(maxAreaOfIsland([[0, 0, 0, 0, 0, 0, 0, 0]]), 0, "max area of island 2")
 
 /*
  Challenge 14: 2368. Reachable Nodes With Restrictions
@@ -203,6 +257,9 @@ func reachableNodes(_ n: Int, _ edges: [[Int]], _ restricted: [Int]) -> Int {
     return 0
 }
 
+check(reachableNodes(7, [[0, 1], [1, 2], [3, 1], [4, 0], [0, 5], [5, 6]], [4, 5]), 4, "reachable nodes 1")
+check(reachableNodes(7, [[0, 1], [0, 2], [0, 5], [0, 4], [3, 2], [6, 5]], [4, 2, 1]), 3, "reachable nodes 2")
+
 /*
  Challenge 15: 841. Keys and Rooms
 
@@ -216,6 +273,9 @@ func canVisitAllRooms(_ rooms: [[Int]]) -> Bool {
     // TODO: implement
     return false
 }
+
+check(canVisitAllRooms([[1], [2], [3], []]), true, "keys and rooms 1")
+check(canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]), false, "keys and rooms 2")
 
 // MARK: - Graphs: BFS
 
@@ -235,6 +295,10 @@ func shortestPathBinaryMatrix(_ grid: [[Int]]) -> Int {
     return 0
 }
 
+check(shortestPathBinaryMatrix([[0, 1], [1, 0]]), 2, "shortest path binary matrix 1")
+check(shortestPathBinaryMatrix([[0, 0, 0], [1, 1, 0], [1, 1, 0]]), 4, "shortest path binary matrix 2")
+check(shortestPathBinaryMatrix([[1, 0, 0], [1, 1, 0], [1, 1, 0]]), -1, "shortest path binary matrix 3")
+
 /*
  Challenge 17: 1926. Nearest Exit from Entrance in Maze
 
@@ -249,6 +313,10 @@ func nearestExit(_ maze: [[Character]], _ entrance: [Int]) -> Int {
     // TODO: implement
     return 0
 }
+
+check(nearestExit([["+", "+", ".", "+"], [".", ".", ".", "+"], ["+", "+", "+", "."]], [1, 2]), 1, "nearest exit 1")
+check(nearestExit([["+", "+", "+"], [".", ".", "."], ["+", "+", "+"]], [1, 0]), 2, "nearest exit 2")
+check(nearestExit([[".", "+"]], [0, 0]), -1, "nearest exit 3")
 
 /*
  Challenge 18: 909. Snakes and Ladders
@@ -265,6 +333,17 @@ func snakesAndLadders(_ board: [[Int]]) -> Int {
     return 0
 }
 
+let snakesBoard = [
+    [-1, -1, -1, -1, -1, -1],
+    [-1, -1, -1, -1, -1, -1],
+    [-1, -1, -1, -1, -1, -1],
+    [-1, 35, -1, -1, 13, -1],
+    [-1, -1, -1, -1, -1, -1],
+    [-1, 15, -1, -1, -1, -1],
+]
+check(snakesAndLadders(snakesBoard), 4, "snakes and ladders 1")
+check(snakesAndLadders([[-1, -1], [-1, 3]]), 1, "snakes and ladders 2")
+
 /*
  Challenge 19: 433. Minimum Genetic Mutation
 
@@ -279,6 +358,10 @@ func minMutation(_ startGene: String, _ endGene: String, _ bank: [String]) -> In
     return 0
 }
 
+check(minMutation("AACCGGTT", "AACCGGTA", ["AACCGGTA"]), 1, "genetic mutation 1")
+check(minMutation("AACCGGTT", "AAACGGTA", ["AACCGGTA", "AACCGCTA", "AAACGGTA"]), 2, "genetic mutation 2")
+check(minMutation("AACCGGTT", "AACCGGTA", []), -1, "genetic mutation 3")
+
 /*
  Challenge 20: 1306. Jump Game III
 
@@ -292,91 +375,6 @@ func canReach(_ arr: [Int], _ start: Int) -> Bool {
     // TODO: implement
     return false
 }
-
-// MARK: - Tests
-
-check(minDepth(TreeNode.make([3, 9, 20, nil, nil, 15, 7])), 2, "min depth 1")
-check(minDepth(TreeNode.make([2, nil, 3, nil, 4, nil, 5, nil, 6])), 5, "min depth 2")
-check(minDepth(nil), 0, "min depth (empty)")
-
-check(maxAncestorDiff(TreeNode.make([8, 3, 10, 1, 6, nil, 14, nil, nil, 4, 7, 13])), 7, "max ancestor diff 1")
-check(maxAncestorDiff(TreeNode.make([1, nil, 2, nil, 0, 3])), 3, "max ancestor diff 2")
-
-check(diameterOfBinaryTree(TreeNode.make([1, 2, 3, 4, 5])), 3, "diameter 1")
-check(diameterOfBinaryTree(TreeNode.make([1, 2])), 1, "diameter 2")
-
-check(deepestLeavesSum(TreeNode.make([1, 2, 3, 4, 5, nil, 6, 7, nil, nil, nil, nil, 8])), 15, "deepest leaves 1")
-check(deepestLeavesSum(TreeNode.make([6, 7, 8, 2, 7, 1, 3, 9, nil, 1, 4, nil, nil, nil, 5])), 19, "deepest leaves 2")
-
-check(zigzagLevelOrder(TreeNode.make([3, 9, 20, nil, nil, 15, 7])), [[3], [20, 9], [15, 7]], "zigzag 1")
-check(zigzagLevelOrder(TreeNode.make([1])), [[1]], "zigzag 2")
-check(zigzagLevelOrder(nil), [], "zigzag (empty)")
-
-check(rightSideView(TreeNode.make([1, 2, 3, nil, 5, nil, 4])), [1, 3, 4], "right side view 1")
-check(rightSideView(TreeNode.make([1, nil, 3])), [1, 3], "right side view 2")
-check(rightSideView(TreeNode.make([1, 2, 3, 4])), [1, 3, 4], "right side view 3")
-
-check(insertIntoBST(TreeNode.make([4, 2, 7, 1, 3]), 5)?.array ?? [], [4, 2, 7, 1, 3, 5], "insert into BST 1")
-check(insertIntoBST(nil, 5)?.array ?? [], [5], "insert into BST (empty)")
-
-check(getMinimumDifference(TreeNode.make([4, 2, 6, 1, 3])), 1, "min BST difference 1")
-check(getMinimumDifference(TreeNode.make([1, 0, 48, nil, nil, 12, 49])), 1, "min BST difference 2")
-
-check(isValidBST(TreeNode.make([2, 1, 3])), true, "valid BST 1")
-check(isValidBST(TreeNode.make([5, 1, 4, nil, nil, 3, 6])), false, "valid BST 2")
-check(isValidBST(TreeNode.make([5, 4, 6, nil, nil, 3, 7])), false, "valid BST 3 (3 is under 6 but less than 5)")
-
-check(closestValue(TreeNode.make([4, 2, 5, 1, 3]), 3.714286), 4, "closest BST value 1")
-check(closestValue(TreeNode.make([1]), 4.428571), 1, "closest BST value 2")
-check(closestValue(TreeNode.make([4, 2, 5, 1, 3]), 3.5), 3, "closest BST value (tie -> smaller)")
-
-check(validPath(3, [[0, 1], [1, 2], [2, 0]], 0, 2), true, "path exists 1")
-check(validPath(6, [[0, 1], [0, 2], [3, 5], [5, 4], [4, 3]], 0, 5), false, "path exists 2")
-
-check(countComponents(5, [[0, 1], [1, 2], [3, 4]]), 2, "connected components 1")
-check(countComponents(5, [[0, 1], [1, 2], [2, 3], [3, 4]]), 1, "connected components 2")
-
-let island = [
-    [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-    [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
-    [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
-]
-check(maxAreaOfIsland(island), 6, "max area of island 1")
-check(maxAreaOfIsland([[0, 0, 0, 0, 0, 0, 0, 0]]), 0, "max area of island 2")
-
-check(reachableNodes(7, [[0, 1], [1, 2], [3, 1], [4, 0], [0, 5], [5, 6]], [4, 5]), 4, "reachable nodes 1")
-check(reachableNodes(7, [[0, 1], [0, 2], [0, 5], [0, 4], [3, 2], [6, 5]], [4, 2, 1]), 3, "reachable nodes 2")
-
-check(canVisitAllRooms([[1], [2], [3], []]), true, "keys and rooms 1")
-check(canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]), false, "keys and rooms 2")
-
-check(shortestPathBinaryMatrix([[0, 1], [1, 0]]), 2, "shortest path binary matrix 1")
-check(shortestPathBinaryMatrix([[0, 0, 0], [1, 1, 0], [1, 1, 0]]), 4, "shortest path binary matrix 2")
-check(shortestPathBinaryMatrix([[1, 0, 0], [1, 1, 0], [1, 1, 0]]), -1, "shortest path binary matrix 3")
-
-check(nearestExit([["+", "+", ".", "+"], [".", ".", ".", "+"], ["+", "+", "+", "."]], [1, 2]), 1, "nearest exit 1")
-check(nearestExit([["+", "+", "+"], [".", ".", "."], ["+", "+", "+"]], [1, 0]), 2, "nearest exit 2")
-check(nearestExit([[".", "+"]], [0, 0]), -1, "nearest exit 3")
-
-let snakesBoard = [
-    [-1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1],
-    [-1, 35, -1, -1, 13, -1],
-    [-1, -1, -1, -1, -1, -1],
-    [-1, 15, -1, -1, -1, -1],
-]
-check(snakesAndLadders(snakesBoard), 4, "snakes and ladders 1")
-check(snakesAndLadders([[-1, -1], [-1, 3]]), 1, "snakes and ladders 2")
-
-check(minMutation("AACCGGTT", "AACCGGTA", ["AACCGGTA"]), 1, "genetic mutation 1")
-check(minMutation("AACCGGTT", "AAACGGTA", ["AACCGGTA", "AACCGCTA", "AAACGGTA"]), 2, "genetic mutation 2")
-check(minMutation("AACCGGTT", "AACCGGTA", []), -1, "genetic mutation 3")
 
 check(canReach([4, 2, 3, 0, 3, 1, 2], 5), true, "jump game III 1")
 check(canReach([4, 2, 3, 0, 3, 1, 2], 0), true, "jump game III 2")

@@ -2,7 +2,7 @@
 //: Chapter: 05-Stacks-and-Queues
 //:
 //: Practice problems for stacks, queues and monotonic stacks/queues.
-//: Write each solution, then run the playground — the tests are at the bottom.
+//: Write each solution, then run the playground — each challenge's tests are right under it.
 import Foundation
 
 /*
@@ -20,6 +20,13 @@ func isValid(_ s: String) -> Bool {
     return false
 }
 
+check(isValid("()"), true, "valid parentheses 1")
+check(isValid("()[]{}"), true, "valid parentheses 2")
+check(isValid("(]"), false, "valid parentheses 3")
+check(isValid("([)]"), false, "valid parentheses 4")
+check(isValid("{[]}"), true, "valid parentheses 5")
+check(isValid("("), false, "valid parentheses 6")
+
 /*
  Challenge 2: 1047. Remove All Adjacent Duplicates In String
 
@@ -33,6 +40,9 @@ func removeDuplicates(_ s: String) -> String {
     // TODO: implement
     return ""
 }
+
+check(removeDuplicates("abbaca"), "ca", "adjacent duplicates 1")
+check(removeDuplicates("azxxzy"), "ay", "adjacent duplicates 2")
 
 /*
  Challenge 3: 844. Backspace String Compare
@@ -48,6 +58,10 @@ func backspaceCompare(_ s: String, _ t: String) -> Bool {
     // TODO: implement
     return false
 }
+
+check(backspaceCompare("ab#c", "ad#c"), true, "backspace compare 1")
+check(backspaceCompare("ab##", "c#d#"), true, "backspace compare 2")
+check(backspaceCompare("a#c", "b"), false, "backspace compare 3")
 
 /*
  Challenge 4: 71. Simplify Path
@@ -65,6 +79,11 @@ func simplifyPath(_ path: String) -> String {
     return ""
 }
 
+check(simplifyPath("/home/"), "/home", "simplify path 1")
+check(simplifyPath("/../"), "/", "simplify path 2")
+check(simplifyPath("/home//foo/"), "/home/foo", "simplify path 3")
+check(simplifyPath("/a/./b/../../c/"), "/c", "simplify path 4")
+
 /*
  Challenge 5: 1544. Make The String Great
 
@@ -80,6 +99,10 @@ func makeGood(_ s: String) -> String {
     // TODO: implement
     return ""
 }
+
+check(makeGood("leEeetcode"), "leetcode", "make good 1")
+check(makeGood("abBAcC"), "", "make good 2")
+check(makeGood("s"), "s", "make good 3")
 
 /*
  Challenge 6: 346. Moving Average from Data Stream
@@ -102,6 +125,9 @@ struct MovingAverage {
     }
 }
 
+var movingAverage = MovingAverage(3)
+check([1, 10, 3, 5].map { movingAverage.next($0) }, [1.0, 5.5, 14.0 / 3.0, 6.0], "moving average")
+
 /*
  Challenge 7: 649. Dota2 Senate
 
@@ -117,6 +143,10 @@ func predictPartyVictory(_ senate: String) -> String {
     return ""
 }
 
+check(predictPartyVictory("RD"), "Radiant", "dota2 senate 1")
+check(predictPartyVictory("RDD"), "Dire", "dota2 senate 2")
+check(predictPartyVictory("DDRRR"), "Dire", "dota2 senate 3")
+
 /*
  Challenge 8: 739. Daily Temperatures
 
@@ -131,6 +161,10 @@ func dailyTemperatures(_ temperatures: [Int]) -> [Int] {
     return []
 }
 
+check(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]), [1, 1, 4, 2, 1, 1, 0, 0], "daily temperatures 1")
+check(dailyTemperatures([30, 40, 50, 60]), [1, 1, 1, 0], "daily temperatures 2")
+check(dailyTemperatures([30, 60, 90]), [1, 1, 0], "daily temperatures 3")
+
 /*
  Challenge 9: 496. Next Greater Element I
 
@@ -144,6 +178,9 @@ func nextGreaterElement(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
     // TODO: implement
     return []
 }
+
+check(nextGreaterElement([4, 1, 2], [1, 3, 4, 2]), [-1, 3, -1], "next greater element 1")
+check(nextGreaterElement([2, 4], [1, 2, 3, 4]), [3, -1], "next greater element 2")
 
 /*
  Challenge 10: 901. Online Stock Span
@@ -162,6 +199,9 @@ struct StockSpanner {
     }
 }
 
+var spanner = StockSpanner()
+check([100, 80, 60, 70, 60, 75, 85].map { spanner.next($0) }, [1, 1, 1, 2, 1, 4, 6], "stock spanner")
+
 /*
  Challenge 11: 239. Sliding Window Maximum
 
@@ -175,48 +215,6 @@ func maxSlidingWindow(_ nums: [Int], _ k: Int) -> [Int] {
     // TODO: implement
     return []
 }
-
-// MARK: - Tests
-
-check(isValid("()"), true, "valid parentheses 1")
-check(isValid("()[]{}"), true, "valid parentheses 2")
-check(isValid("(]"), false, "valid parentheses 3")
-check(isValid("([)]"), false, "valid parentheses 4")
-check(isValid("{[]}"), true, "valid parentheses 5")
-check(isValid("("), false, "valid parentheses 6")
-
-check(removeDuplicates("abbaca"), "ca", "adjacent duplicates 1")
-check(removeDuplicates("azxxzy"), "ay", "adjacent duplicates 2")
-
-check(backspaceCompare("ab#c", "ad#c"), true, "backspace compare 1")
-check(backspaceCompare("ab##", "c#d#"), true, "backspace compare 2")
-check(backspaceCompare("a#c", "b"), false, "backspace compare 3")
-
-check(simplifyPath("/home/"), "/home", "simplify path 1")
-check(simplifyPath("/../"), "/", "simplify path 2")
-check(simplifyPath("/home//foo/"), "/home/foo", "simplify path 3")
-check(simplifyPath("/a/./b/../../c/"), "/c", "simplify path 4")
-
-check(makeGood("leEeetcode"), "leetcode", "make good 1")
-check(makeGood("abBAcC"), "", "make good 2")
-check(makeGood("s"), "s", "make good 3")
-
-var movingAverage = MovingAverage(3)
-check([1, 10, 3, 5].map { movingAverage.next($0) }, [1.0, 5.5, 14.0 / 3.0, 6.0], "moving average")
-
-check(predictPartyVictory("RD"), "Radiant", "dota2 senate 1")
-check(predictPartyVictory("RDD"), "Dire", "dota2 senate 2")
-check(predictPartyVictory("DDRRR"), "Dire", "dota2 senate 3")
-
-check(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]), [1, 1, 4, 2, 1, 1, 0, 0], "daily temperatures 1")
-check(dailyTemperatures([30, 40, 50, 60]), [1, 1, 1, 0], "daily temperatures 2")
-check(dailyTemperatures([30, 60, 90]), [1, 1, 0], "daily temperatures 3")
-
-check(nextGreaterElement([4, 1, 2], [1, 3, 4, 2]), [-1, 3, -1], "next greater element 1")
-check(nextGreaterElement([2, 4], [1, 2, 3, 4]), [3, -1], "next greater element 2")
-
-var spanner = StockSpanner()
-check([100, 80, 60, 70, 60, 75, 85].map { spanner.next($0) }, [1, 1, 1, 2, 1, 4, 6], "stock spanner")
 
 check(maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3), [3, 3, 5, 5, 6, 7], "sliding window max 1")
 check(maxSlidingWindow([1], 1), [1], "sliding window max 2")

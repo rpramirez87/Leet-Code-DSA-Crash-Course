@@ -2,7 +2,7 @@
 //: Chapter: 08-Greedy
 //:
 //: Practice problems for greedy algorithms.
-//: Write each solution, then run the playground — the tests are at the bottom.
+//: Write each solution, then run the playground — each challenge's tests are right under it.
 import Foundation
 
 /*
@@ -20,6 +20,10 @@ func partitionArray(_ nums: [Int], _ k: Int) -> Int {
     return 0
 }
 
+check(partitionArray([3, 6, 1, 2, 5], 2), 2, "partition array 1")
+check(partitionArray([1, 2, 3], 1), 2, "partition array 2")
+check(partitionArray([2, 2, 4, 5], 0), 3, "partition array 3")
+
 /*
  Challenge 2: 881. Boats to Save People
 
@@ -34,6 +38,10 @@ func numRescueBoats(_ people: [Int], _ limit: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(numRescueBoats([1, 2], 3), 1, "rescue boats 1")
+check(numRescueBoats([3, 2, 2, 1], 3), 3, "rescue boats 2")
+check(numRescueBoats([3, 5, 3, 4], 5), 4, "rescue boats 3")
 
 /*
  Challenge 3: 1323. Maximum 69 Number
@@ -50,6 +58,10 @@ func maximum69Number(_ num: Int) -> Int {
     return 0
 }
 
+check(maximum69Number(9669), 9969, "maximum 69 number 1")
+check(maximum69Number(9996), 9999, "maximum 69 number 2")
+check(maximum69Number(9999), 9999, "maximum 69 number 3")
+
 /*
  Challenge 4: 1710. Maximum Units on a Truck
 
@@ -63,6 +75,9 @@ func maximumUnits(_ boxTypes: [[Int]], _ truckSize: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(maximumUnits([[1, 3], [2, 2], [3, 1]], 4), 8, "maximum units 1")
+check(maximumUnits([[5, 10], [2, 5], [4, 7], [3, 9]], 10), 91, "maximum units 2")
 
 /*
  Challenge 5: 1196. How Many Apples Can You Put into the Basket
@@ -78,6 +93,9 @@ func maxNumberOfApples(_ weight: [Int]) -> Int {
     return 0
 }
 
+check(maxNumberOfApples([100, 200, 150, 1000]), 4, "apples in basket 1")
+check(maxNumberOfApples([900, 950, 800, 1000, 700, 800]), 5, "apples in basket 2")
+
 /*
  Challenge 6: 1338. Reduce Array Size to The Half
 
@@ -91,26 +109,6 @@ func minSetSize(_ arr: [Int]) -> Int {
     // TODO: implement
     return 0
 }
-
-// MARK: - Tests
-
-check(partitionArray([3, 6, 1, 2, 5], 2), 2, "partition array 1")
-check(partitionArray([1, 2, 3], 1), 2, "partition array 2")
-check(partitionArray([2, 2, 4, 5], 0), 3, "partition array 3")
-
-check(numRescueBoats([1, 2], 3), 1, "rescue boats 1")
-check(numRescueBoats([3, 2, 2, 1], 3), 3, "rescue boats 2")
-check(numRescueBoats([3, 5, 3, 4], 5), 4, "rescue boats 3")
-
-check(maximum69Number(9669), 9969, "maximum 69 number 1")
-check(maximum69Number(9996), 9999, "maximum 69 number 2")
-check(maximum69Number(9999), 9999, "maximum 69 number 3")
-
-check(maximumUnits([[1, 3], [2, 2], [3, 1]], 4), 8, "maximum units 1")
-check(maximumUnits([[5, 10], [2, 5], [4, 7], [3, 9]], 10), 91, "maximum units 2")
-
-check(maxNumberOfApples([100, 200, 150, 1000]), 4, "apples in basket 1")
-check(maxNumberOfApples([900, 950, 800, 1000, 700, 800]), 5, "apples in basket 2")
 
 check(minSetSize([3, 3, 3, 3, 5, 5, 5, 2, 2, 7]), 2, "reduce array size 1")
 check(minSetSize([7, 7, 7, 7, 7, 7]), 1, "reduce array size 2")

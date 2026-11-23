@@ -2,7 +2,7 @@
 //: Chapter: 02-Arrays-and-Strings
 //:
 //: Practice problems for two pointers and sliding window.
-//: Write each solution, then run the playground — the tests are at the bottom.
+//: Write each solution, then run the playground — each challenge's tests are right under it.
 import Foundation
 
 // MARK: - Two Pointers
@@ -19,6 +19,13 @@ func reverseString(_ s: inout [Character]) {
     // TODO: implement
 }
 
+var hello: [Character] = ["h", "e", "l", "l", "o"]
+reverseString(&hello)
+check(hello, ["o", "l", "l", "e", "h"], "reverse string 1")
+var hannah: [Character] = ["H", "a", "n", "n", "a", "h"]
+reverseString(&hannah)
+check(hannah, ["h", "a", "n", "n", "a", "H"], "reverse string 2")
+
 /*
  Challenge 2: 977. Squares of a Sorted Array
 
@@ -33,6 +40,9 @@ func sortedSquares(_ nums: [Int]) -> [Int] {
     return []
 }
 
+check(sortedSquares([-4, -1, 0, 3, 10]), [0, 1, 9, 16, 100], "sorted squares 1")
+check(sortedSquares([-7, -3, 2, 3, 11]), [4, 9, 9, 49, 121], "sorted squares 2")
+
 /*
  Challenge 3: 557. Reverse Words in a String III
 
@@ -45,6 +55,9 @@ func reverseWords(_ s: String) -> String {
     // TODO: implement
     return ""
 }
+
+check(reverseWords("Let's take LeetCode contest"), "s'teL ekat edoCteeL tsetnoc", "reverse words 1")
+check(reverseWords("Mr Ding"), "rM gniD", "reverse words 2")
 
 /*
  Challenge 4: 917. Reverse Only Letters
@@ -59,6 +72,10 @@ func reverseOnlyLetters(_ s: String) -> String {
     // TODO: implement
     return ""
 }
+
+check(reverseOnlyLetters("ab-cd"), "dc-ba", "reverse only letters 1")
+check(reverseOnlyLetters("a-bC-dEf-ghIj"), "j-Ih-gfE-dCba", "reverse only letters 2")
+check(reverseOnlyLetters("Test1ng-Leet=code-Q!"), "Qedo1ct-eeLg=ntse-T!", "reverse only letters 3")
 
 /*
  Challenge 5: 2000. Reverse Prefix of Word
@@ -75,6 +92,10 @@ func reversePrefix(_ word: String, _ ch: Character) -> String {
     return ""
 }
 
+check(reversePrefix("abcdefd", "d"), "dcbaefd", "reverse prefix 1")
+check(reversePrefix("xyxzxe", "z"), "zxyxxe", "reverse prefix 2")
+check(reversePrefix("abcd", "z"), "abcd", "reverse prefix 3")
+
 /*
  Challenge 6: 283. Move Zeroes
 
@@ -86,6 +107,13 @@ func reversePrefix(_ word: String, _ ch: Character) -> String {
 func moveZeroes(_ nums: inout [Int]) {
     // TODO: implement
 }
+
+var zeroes = [0, 1, 0, 3, 12]
+moveZeroes(&zeroes)
+check(zeroes, [1, 3, 12, 0, 0], "move zeroes 1")
+var singleZero = [0]
+moveZeroes(&singleZero)
+check(singleZero, [0], "move zeroes 2")
 
 // MARK: - Sliding Window
 
@@ -102,6 +130,9 @@ func findMaxAverage(_ nums: [Int], _ k: Int) -> Double {
     return 0
 }
 
+check(findMaxAverage([1, 12, -5, -6, 50, 3], 4), 12.75, "max average 1")
+check(findMaxAverage([5], 1), 5.0, "max average 2")
+
 /*
  Challenge 8: 1004. Max Consecutive Ones III
 
@@ -115,6 +146,9 @@ func longestOnes(_ nums: [Int], _ k: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(longestOnes([1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], 2), 6, "max consecutive ones 1")
+check(longestOnes([0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1], 3), 10, "max consecutive ones 2")
 
 /*
  Challenge 9: 209. Minimum Size Subarray Sum
@@ -131,6 +165,10 @@ func minSubArrayLen(_ target: Int, _ nums: [Int]) -> Int {
     return 0
 }
 
+check(minSubArrayLen(7, [2, 3, 1, 2, 4, 3]), 2, "min size subarray 1")
+check(minSubArrayLen(4, [1, 4, 4]), 1, "min size subarray 2")
+check(minSubArrayLen(11, [1, 1, 1, 1, 1, 1, 1, 1]), 0, "min size subarray 3")
+
 /*
  Challenge 10: 1456. Maximum Number of Vowels in a Substring of Given Length
 
@@ -144,6 +182,10 @@ func maxVowels(_ s: String, _ k: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(maxVowels("abciiidef", 3), 3, "max vowels 1")
+check(maxVowels("aeiou", 2), 2, "max vowels 2")
+check(maxVowels("leetcode", 3), 2, "max vowels 3")
 
 /*
  Challenge 11: 1208. Get Equal Substrings Within Budget
@@ -159,50 +201,6 @@ func equalSubstring(_ s: String, _ t: String, _ maxCost: Int) -> Int {
     // TODO: implement
     return 0
 }
-
-// MARK: - Tests
-
-var hello: [Character] = ["h", "e", "l", "l", "o"]
-reverseString(&hello)
-check(hello, ["o", "l", "l", "e", "h"], "reverse string 1")
-var hannah: [Character] = ["H", "a", "n", "n", "a", "h"]
-reverseString(&hannah)
-check(hannah, ["h", "a", "n", "n", "a", "H"], "reverse string 2")
-
-check(sortedSquares([-4, -1, 0, 3, 10]), [0, 1, 9, 16, 100], "sorted squares 1")
-check(sortedSquares([-7, -3, 2, 3, 11]), [4, 9, 9, 49, 121], "sorted squares 2")
-
-check(reverseWords("Let's take LeetCode contest"), "s'teL ekat edoCteeL tsetnoc", "reverse words 1")
-check(reverseWords("Mr Ding"), "rM gniD", "reverse words 2")
-
-check(reverseOnlyLetters("ab-cd"), "dc-ba", "reverse only letters 1")
-check(reverseOnlyLetters("a-bC-dEf-ghIj"), "j-Ih-gfE-dCba", "reverse only letters 2")
-check(reverseOnlyLetters("Test1ng-Leet=code-Q!"), "Qedo1ct-eeLg=ntse-T!", "reverse only letters 3")
-
-check(reversePrefix("abcdefd", "d"), "dcbaefd", "reverse prefix 1")
-check(reversePrefix("xyxzxe", "z"), "zxyxxe", "reverse prefix 2")
-check(reversePrefix("abcd", "z"), "abcd", "reverse prefix 3")
-
-var zeroes = [0, 1, 0, 3, 12]
-moveZeroes(&zeroes)
-check(zeroes, [1, 3, 12, 0, 0], "move zeroes 1")
-var singleZero = [0]
-moveZeroes(&singleZero)
-check(singleZero, [0], "move zeroes 2")
-
-check(findMaxAverage([1, 12, -5, -6, 50, 3], 4), 12.75, "max average 1")
-check(findMaxAverage([5], 1), 5.0, "max average 2")
-
-check(longestOnes([1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], 2), 6, "max consecutive ones 1")
-check(longestOnes([0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1], 3), 10, "max consecutive ones 2")
-
-check(minSubArrayLen(7, [2, 3, 1, 2, 4, 3]), 2, "min size subarray 1")
-check(minSubArrayLen(4, [1, 4, 4]), 1, "min size subarray 2")
-check(minSubArrayLen(11, [1, 1, 1, 1, 1, 1, 1, 1]), 0, "min size subarray 3")
-
-check(maxVowels("abciiidef", 3), 3, "max vowels 1")
-check(maxVowels("aeiou", 2), 2, "max vowels 2")
-check(maxVowels("leetcode", 3), 2, "max vowels 3")
 
 check(equalSubstring("abcd", "bcdf", 3), 3, "equal substrings 1")
 check(equalSubstring("abcd", "cdef", 3), 1, "equal substrings 2")

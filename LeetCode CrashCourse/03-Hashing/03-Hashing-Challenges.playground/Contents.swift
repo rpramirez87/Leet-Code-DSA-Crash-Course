@@ -2,7 +2,7 @@
 //: Chapter: 03-Hashing
 //:
 //: Practice problems for checking existence and counting.
-//: Write each solution, then run the playground — the tests are at the bottom.
+//: Write each solution, then run the playground — each challenge's tests are right under it.
 import Foundation
 
 /*
@@ -22,6 +22,9 @@ func checkIfPangram(_ sentence: String) -> Bool {
     return characterSet.count == 26
 }
 
+check(checkIfPangram("thequickbrownfoxjumpsoverthelazydog"), true, "pangram 1")
+check(checkIfPangram("leetcode"), false, "pangram 2")
+
 /*
  Challenge 2: 268. Missing Number
 
@@ -39,6 +42,12 @@ func missingNumber(_ nums: [Int]) -> Int {
     }
     return -1 // unreachable: exactly one number in 0...n is missing
 }
+
+check(missingNumber([3, 0, 1]), 2, "missing number 1")
+check(missingNumber([0, 1]), 2, "missing number 2")
+check(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]), 8, "missing number 3")
+check(missingNumber([1]), 0, "missing number (0 missing, single)")
+check(missingNumber([2, 1, 3]), 0, "missing number (0 missing)")
 
 /*
  Challenge 3: 1426. Counting Elements
@@ -58,6 +67,10 @@ func countElements(_ arr: [Int]) -> Int {
     return answerCount
 }
 
+check(countElements([1, 2, 3]), 2, "counting elements 1")
+check(countElements([1, 1, 3, 3, 5, 5, 7, 7]), 0, "counting elements 2")
+check(countElements([1, 1, 2, 2]), 2, "counting elements (duplicates count)")
+
 /*
  Challenge 4: 2225. Find Players With Zero or One Losses
 
@@ -74,6 +87,10 @@ func findWinners(_ matches: [[Int]]) -> [[Int]] {
     return [[], []]
 }
 
+check(findWinners([[1, 3], [2, 3], [3, 6], [5, 6], [5, 7], [4, 5], [4, 8], [4, 9], [10, 4], [10, 9]]),
+      [[1, 2, 10], [4, 5, 7, 8]], "find winners 1")
+check(findWinners([[2, 3], [1, 3], [5, 4], [6, 4]]), [[1, 2, 5, 6], []], "find winners 2")
+
 /*
  Challenge 5: 1133. Largest Unique Number
 
@@ -87,6 +104,9 @@ func largestUniqueNumber(_ nums: [Int]) -> Int {
     // TODO: implement
     return 0
 }
+
+check(largestUniqueNumber([5, 7, 3, 9, 4, 9, 8, 3, 1]), 8, "largest unique 1")
+check(largestUniqueNumber([9, 9, 8, 8]), -1, "largest unique 2")
 
 /*
  Challenge 6: 1189. Maximum Number of Balloons
@@ -103,6 +123,10 @@ func maxNumberOfBalloons(_ text: String) -> Int {
     return 0
 }
 
+check(maxNumberOfBalloons("nlaebolko"), 1, "balloons 1")
+check(maxNumberOfBalloons("loonbalxballpoon"), 2, "balloons 2")
+check(maxNumberOfBalloons("leetcode"), 0, "balloons 3")
+
 /*
  Challenge 7: 525. Contiguous Array
 
@@ -116,6 +140,10 @@ func findMaxLength(_ nums: [Int]) -> Int {
     // TODO: implement
     return 0
 }
+
+check(findMaxLength([0, 1]), 2, "contiguous array 1")
+check(findMaxLength([0, 1, 0]), 2, "contiguous array 2")
+check(findMaxLength([0, 1, 1, 1, 1, 1, 0, 0, 0]), 6, "contiguous array 3")
 
 /*
  Challenge 8: 383. Ransom Note
@@ -132,6 +160,10 @@ func canConstruct(_ ransomNote: String, _ magazine: String) -> Bool {
     return false
 }
 
+check(canConstruct("a", "b"), false, "ransom note 1")
+check(canConstruct("aa", "ab"), false, "ransom note 2")
+check(canConstruct("aa", "aab"), true, "ransom note 3")
+
 /*
  Challenge 9: 771. Jewels and Stones
 
@@ -146,6 +178,9 @@ func numJewelsInStones(_ jewels: String, _ stones: String) -> Int {
     return 0
 }
 
+check(numJewelsInStones("aA", "aAAbbbb"), 3, "jewels 1")
+check(numJewelsInStones("z", "ZZ"), 0, "jewels 2")
+
 /*
  Challenge 10: 3. Longest Substring Without Repeating Characters
 
@@ -159,43 +194,6 @@ func lengthOfLongestSubstring(_ s: String) -> Int {
     // TODO: implement
     return 0
 }
-
-// MARK: - Tests
-
-check(checkIfPangram("thequickbrownfoxjumpsoverthelazydog"), true, "pangram 1")
-check(checkIfPangram("leetcode"), false, "pangram 2")
-
-check(missingNumber([3, 0, 1]), 2, "missing number 1")
-check(missingNumber([0, 1]), 2, "missing number 2")
-check(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]), 8, "missing number 3")
-check(missingNumber([1]), 0, "missing number (0 missing, single)")
-check(missingNumber([2, 1, 3]), 0, "missing number (0 missing)")
-
-check(countElements([1, 2, 3]), 2, "counting elements 1")
-check(countElements([1, 1, 3, 3, 5, 5, 7, 7]), 0, "counting elements 2")
-check(countElements([1, 1, 2, 2]), 2, "counting elements (duplicates count)")
-
-check(findWinners([[1, 3], [2, 3], [3, 6], [5, 6], [5, 7], [4, 5], [4, 8], [4, 9], [10, 4], [10, 9]]),
-      [[1, 2, 10], [4, 5, 7, 8]], "find winners 1")
-check(findWinners([[2, 3], [1, 3], [5, 4], [6, 4]]), [[1, 2, 5, 6], []], "find winners 2")
-
-check(largestUniqueNumber([5, 7, 3, 9, 4, 9, 8, 3, 1]), 8, "largest unique 1")
-check(largestUniqueNumber([9, 9, 8, 8]), -1, "largest unique 2")
-
-check(maxNumberOfBalloons("nlaebolko"), 1, "balloons 1")
-check(maxNumberOfBalloons("loonbalxballpoon"), 2, "balloons 2")
-check(maxNumberOfBalloons("leetcode"), 0, "balloons 3")
-
-check(findMaxLength([0, 1]), 2, "contiguous array 1")
-check(findMaxLength([0, 1, 0]), 2, "contiguous array 2")
-check(findMaxLength([0, 1, 1, 1, 1, 1, 0, 0, 0]), 6, "contiguous array 3")
-
-check(canConstruct("a", "b"), false, "ransom note 1")
-check(canConstruct("aa", "ab"), false, "ransom note 2")
-check(canConstruct("aa", "aab"), true, "ransom note 3")
-
-check(numJewelsInStones("aA", "aAAbbbb"), 3, "jewels 1")
-check(numJewelsInStones("z", "ZZ"), 0, "jewels 2")
 
 check(lengthOfLongestSubstring("abcabcbb"), 3, "longest substring 1")
 check(lengthOfLongestSubstring("bbbbb"), 1, "longest substring 2")

@@ -4,8 +4,13 @@
 //: Practice problems for heaps and top k.
 //: Swift has no built-in priority queue — use `Heap<Int>(<)` (min-heap) or `Heap<Int>(>)` (max-heap)
 //: from `Sources/Helpers.swift`.
-//: Write each solution, then run the playground — the tests are at the bottom.
+//: Write each solution, then run the playground — each challenge's tests are right under it.
 import Foundation
+
+/// Sorts a list of points so tests don't depend on the order your answer comes back in.
+func sortedPoints(_ points: [[Int]]) -> [[Int]] {
+    points.sorted { $0.lexicographicallyPrecedes($1) }
+}
 
 /*
  Challenge 1: 1046. Last Stone Weight
@@ -21,6 +26,10 @@ func lastStoneWeight(_ stones: [Int]) -> Int {
     return 0
 }
 
+check(lastStoneWeight([2, 7, 4, 1, 8, 1]), 1, "last stone weight 1")
+check(lastStoneWeight([1]), 1, "last stone weight 2")
+check(lastStoneWeight([2, 2]), 0, "last stone weight 3")
+
 /*
  Challenge 2: 1962. Remove Stones to Minimize the Total
 
@@ -34,6 +43,9 @@ func minStoneSum(_ piles: [Int], _ k: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(minStoneSum([5, 4, 9], 2), 12, "remove stones 1")
+check(minStoneSum([4, 3, 6, 7], 3), 12, "remove stones 2")
 
 /*
  Challenge 3: 1167. Minimum Cost to Connect Sticks
@@ -50,6 +62,10 @@ func connectSticks(_ sticks: [Int]) -> Int {
     return 0
 }
 
+check(connectSticks([2, 4, 3]), 14, "connect sticks 1")
+check(connectSticks([1, 8, 3, 5]), 30, "connect sticks 2")
+check(connectSticks([5]), 0, "connect sticks 3")
+
 /*
  Challenge 4: 215. Kth Largest Element in an Array
 
@@ -62,6 +78,9 @@ func findKthLargest(_ nums: [Int], _ k: Int) -> Int {
     // TODO: implement
     return 0
 }
+
+check(findKthLargest([3, 2, 1, 5, 6, 4], 2), 5, "kth largest 1")
+check(findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4), 4, "kth largest 2")
 
 /*
  Challenge 5: 347. Top K Frequent Elements
@@ -76,6 +95,9 @@ func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
     return []
 }
 
+check(topKFrequent([1, 1, 1, 2, 2, 3], 2).sorted(), [1, 2], "top k frequent 1")
+check(topKFrequent([1], 1), [1], "top k frequent 2")
+
 /*
  Challenge 6: 973. K Closest Points to Origin
 
@@ -88,6 +110,9 @@ func kClosest(_ points: [[Int]], _ k: Int) -> [[Int]] {
     // TODO: implement
     return []
 }
+
+check(sortedPoints(kClosest([[1, 3], [-2, 2]], 1)), [[-2, 2]], "k closest 1")
+check(sortedPoints(kClosest([[3, 3], [5, -1], [-2, 4]], 2)), [[-2, 4], [3, 3]], "k closest 2")
 
 /*
  Challenge 7: 703. Kth Largest Element in a Stream
@@ -110,6 +135,9 @@ class KthLargest {
     }
 }
 
+let kthLargest = KthLargest(3, [4, 5, 8, 2])
+check([3, 5, 10, 9, 4].map { kthLargest.add($0) }, [4, 5, 5, 8, 8], "kth largest in a stream")
+
 /*
  Challenge 8: 295. Find Median from Data Stream
 
@@ -130,36 +158,6 @@ class MedianFinder {
         return 0
     }
 }
-
-// MARK: - Tests
-
-/// Sorts a list of points so tests don't depend on the order your answer comes back in.
-func sortedPoints(_ points: [[Int]]) -> [[Int]] {
-    points.sorted { $0.lexicographicallyPrecedes($1) }
-}
-
-check(lastStoneWeight([2, 7, 4, 1, 8, 1]), 1, "last stone weight 1")
-check(lastStoneWeight([1]), 1, "last stone weight 2")
-check(lastStoneWeight([2, 2]), 0, "last stone weight 3")
-
-check(minStoneSum([5, 4, 9], 2), 12, "remove stones 1")
-check(minStoneSum([4, 3, 6, 7], 3), 12, "remove stones 2")
-
-check(connectSticks([2, 4, 3]), 14, "connect sticks 1")
-check(connectSticks([1, 8, 3, 5]), 30, "connect sticks 2")
-check(connectSticks([5]), 0, "connect sticks 3")
-
-check(findKthLargest([3, 2, 1, 5, 6, 4], 2), 5, "kth largest 1")
-check(findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4), 4, "kth largest 2")
-
-check(topKFrequent([1, 1, 1, 2, 2, 3], 2).sorted(), [1, 2], "top k frequent 1")
-check(topKFrequent([1], 1), [1], "top k frequent 2")
-
-check(sortedPoints(kClosest([[1, 3], [-2, 2]], 1)), [[-2, 2]], "k closest 1")
-check(sortedPoints(kClosest([[3, 3], [5, -1], [-2, 4]], 2)), [[-2, 4], [3, 3]], "k closest 2")
-
-let kthLargest = KthLargest(3, [4, 5, 8, 2])
-check([3, 5, 10, 9, 4].map { kthLargest.add($0) }, [4, 5, 5, 8, 8], "kth largest in a stream")
 
 let medianFinder = MedianFinder()
 medianFinder.addNum(1)
