@@ -123,9 +123,16 @@ check(subarraySum([1, 1, 1], 2), 2, "subarray sum: [1, 1] twice")
  For example, given nums = [1, 1, 2, 1, 1] and k = 3, return 2. The subarrays with 3 odd numbers are [1, 1, 2, 1] and [1, 2, 1, 1].
  */
 func numberOfSubarrays(_ nums: [Int], _ k: Int) -> Int {
+    var counts: [Int: Int] = [0: 1]
+    var answer = 0
+    var curr = 0
     
-    
-    return 0
+    for num in nums {
+        curr += num % 2 // tracks how many odd numbers per iteration
+        answer += counts[curr - k, default: 0]
+        counts[curr, default: 0] += 1
+    }
+    return answer
 }
 
 check(numberOfSubarrays([1, 1, 2, 1, 1], 3), 2, "nice subarrays: textbook example")
