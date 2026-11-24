@@ -135,8 +135,18 @@ check(findWinnersOptimal([[2, 3], [1, 3], [5, 4], [6, 4]]), [[1, 2, 5, 6], []], 
  Input: nums = [9,9,8,8]            Output: -1
  */
 func largestUniqueNumber(_ nums: [Int]) -> Int {
-    // TODO: implement
-    return 0
+    var maxNumber = -1
+    var existingNumbers = [Int: Int]()
+    
+    for num in nums {
+        existingNumbers[num, default: 0] += 1
+    }
+    for (key, value) in existingNumbers.sorted(by: { $0.key > $1.key }) {
+        if value == 1 {
+            return key
+        }
+    }
+    return -1
 }
 
 check(largestUniqueNumber([5, 7, 3, 9, 4, 9, 8, 3, 1]), 8, "largest unique 1")
