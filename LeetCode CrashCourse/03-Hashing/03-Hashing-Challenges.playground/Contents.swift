@@ -167,17 +167,14 @@ func maxNumberOfBalloons(_ text: String) -> Int {
     
     for character in textArray {
         counts[character, default: 0] += 1
-        // validate balloon count and reset
-        if counts["b", default: 0] >= 1 && counts["a", default: 0] >= 1 && counts["l", default: 0] >= 2 && counts["o", default: 0] >= 2 && counts["n", default: 0] >= 1 {
-            answer += 1
-            counts["b", default: 0] -= 1
-            counts["a", default: 0] -= 1
-            counts["l", default: 0] -= 2
-            counts["o", default: 0] -= 2
-            counts["n", default: 0] -= 1
-        }
     }
-    return answer
+    return min(
+        counts["b", default: 0],
+        counts["a", default: 0],
+        counts["l", default: 0] / 2,
+        counts["o", default: 0] / 2,
+        counts["n", default: 0]
+    )
 }
 
 check(maxNumberOfBalloons("nlaebolko"), 1, "balloons 1")
