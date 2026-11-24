@@ -161,8 +161,23 @@ check(largestUniqueNumber([9, 9, 8, 8]), -1, "largest unique 2")
  Input: text = "leetcode"           Output: 0
  */
 func maxNumberOfBalloons(_ text: String) -> Int {
-    // TODO: implement
-    return 0
+    var textArray = Array(text)
+    var counts = [Character: Int]()
+    var answer = 0
+    
+    for character in textArray {
+        counts[character, default: 0] += 1
+        // validate balloon count and reset
+        if counts["b", default: 0] >= 1 && counts["a", default: 0] >= 1 && counts["l", default: 0] >= 2 && counts["o", default: 0] >= 2 && counts["n", default: 0] >= 1 {
+            answer += 1
+            counts["b", default: 0] -= 1
+            counts["a", default: 0] -= 1
+            counts["l", default: 0] -= 2
+            counts["o", default: 0] -= 2
+            counts["n", default: 0] -= 1
+        }
+    }
+    return answer
 }
 
 check(maxNumberOfBalloons("nlaebolko"), 1, "balloons 1")
