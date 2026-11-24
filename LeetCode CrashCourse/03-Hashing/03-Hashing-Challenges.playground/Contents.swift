@@ -98,9 +98,32 @@ func findWinners(_ matches: [[Int]]) -> [[Int]] {
     return [undefeated, oneLost]
 }
 
-check(findWinners([[1, 3], [2, 3], [3, 6], [5, 6], [5, 7], [4, 5], [4, 8], [4, 9], [10, 4], [10, 9]]),
+func findWinnersOptimal(_ matches: [[Int]]) -> [[Int]] {
+    var losses = [Int: Int]()
+    for match in matches {
+        let winner = match[0], loser = match[1]
+        
+        // tracks winners with no losses
+        if losses[winner] == nil {
+            losses[winner] = 0
+        }
+        losses[loser, default: 0] += 1
+    }
+    
+    var zeroLosses = [Int]()
+    var oneLosses = [Int]()
+    
+    for (player, count) in losses {
+        if count == 0 { zeroLosses.append(player) }
+        if count == 1 { oneLosses.append(player)}
+    }
+    
+    return [zeroLosses.sorted(), oneLosses.sorted()]
+}
+
+check(findWinnersOptimal([[1, 3], [2, 3], [3, 6], [5, 6], [5, 7], [4, 5], [4, 8], [4, 9], [10, 4], [10, 9]]),
       [[1, 2, 10], [4, 5, 7, 8]], "find winners 1")
-check(findWinners([[2, 3], [1, 3], [5, 4], [6, 4]]), [[1, 2, 5, 6], []], "find winners 2")
+check(findWinnersOptimal([[2, 3], [1, 3], [5, 4], [6, 4]]), [[1, 2, 5, 6], []], "find winners 2")
 
 /*
  Challenge 5: 1133. Largest Unique Number
